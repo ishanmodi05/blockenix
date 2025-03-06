@@ -1,0 +1,190 @@
+/* Header Styles */
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+/* ====== Basic Menu Styles ====== */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.menu > li {
+  position: relative;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  background: #222;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.menu li a:hover {
+  background: #444;
+}
+
+/* ====== Mega Menu Styles (First-Level Dropdown) ====== */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 600px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 10;
+}
+
+.mega-menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.mega-menu-items li {
+  width: 100%;
+}
+
+/* ====== Second-Level Dropdown (Inside Mega Menu) ====== */
+.sub-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: none;
+  list-style: none;
+  padding: 0;
+}
+
+.sub-menu li {
+  position: relative;
+}
+
+.sub-menu li a {
+  color: #222;
+  padding: 10px 15px;
+  display: block;
+  white-space: nowrap;
+}
+
+.sub-menu li a:hover {
+  background: #f4f4f4;
+}
+
+/* ====== Show Mega Menu on Hover ====== */
+.menu > li:hover > .mega-menu,
+.mega-menu-items > li:hover > .sub-menu {
+  display: block;
+  width: 100%;
+}
+
+.site-footer {
+  background: #222;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-widgets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-column {
+  text-align: left;
+}
+
+.footer-widget-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+/* ====== Responsive Styles (Mobile View) ====== */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .mega-menu,
+  .sub-menu {
+    position: static;
+    width: 100%;
+    display: none;
+    box-shadow: none;
+  }
+
+  .menu > li:hover > .mega-menu,
+  .mega-menu-items > li:hover > .sub-menu {
+    display: block;
+  }
+}
+
+/* Hide navigation on mobile initially */
+@media (max-width: 768px) {
+  .primary-navigation {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .primary-navigation.active {
+    display: flex;
+  }
+
+  /* Mobile menu toggle button */
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Change icon when menu is active */
+  .mobile-menu-toggle.active::after {
+    content: "✖"; /* Close Icon */
+    z-index: 1;
+    position: relative;
+  }
+}
+
+/* Hide menu toggle button on larger screens */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+}

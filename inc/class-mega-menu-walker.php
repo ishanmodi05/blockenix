@@ -1,9 +1,11 @@
 <?php
 
-class Mega_Menu_Walker extends Walker_Nav_Menu {
-    
+class Blockenix_Mega_Menu_Walker extends Walker_Nav_Menu
+{
+
     // Start the sub-menu (level 1 is the mega menu container)
-    function start_lvl( &$output, $depth = 0, $args = null ) {
+    function start_lvl(&$output, $depth = 0, $args = null)
+    {
         if ($depth === 0) {
             // Start the mega menu container
             $output .= '<div class="mega-menu"><ul class="mega-menu-items">';
@@ -14,7 +16,8 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
     }
 
     // End the sub-menu
-    function end_lvl( &$output, $depth = 0, $args = null ) {
+    function end_lvl(&$output, $depth = 0, $args = null)
+    {
         if ($depth === 0) {
             // Close mega menu div
             $output .= '</ul></div>';
@@ -25,10 +28,11 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
     }
 
     // Start a menu item
-    function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+    {
         // Get menu item classes
-        $classes = !empty($item->classes) && is_array($item->classes) 
-            ? implode(' ', $item->classes) 
+        $classes = !empty($item->classes) && is_array($item->classes)
+            ? implode(' ', $item->classes)
             : '';
 
         // Check if this item should have a mega menu
@@ -40,7 +44,8 @@ class Mega_Menu_Walker extends Walker_Nav_Menu {
     }
 
     // End a menu item
-    function end_el( &$output, $item, $depth = 0, $args = null ) {
+    function end_el(&$output, $item, $depth = 0, $args = null)
+    {
         $output .= '</li>';
     }
 }

@@ -1,4 +1,14 @@
-/* Header Styles */
+/* ==========================================================================
+   1. Header & Navigation
+   ========================================================================== */
+html {
+  margin-top: 0 !important;
+}
+
+.site-logo img{
+  object-fit: cover;
+}
+
 .header-nav {
   display: flex;
   justify-content: space-between;
@@ -6,7 +16,8 @@
   padding: 15px 30px;
 }
 
-/* ====== Basic Menu Styles ====== */
+/* Primary Navigation Menu
+   ========================================================================== */
 .menu {
   list-style: none;
   margin: 0;
@@ -25,14 +36,15 @@
   color: #fff;
   background: #222;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .menu li a:hover {
   background: #444;
 }
 
-/* ====== Mega Menu Styles (First-Level Dropdown) ====== */
+/* Mega Menu (First-Level Dropdown)
+   ========================================================================== */
 .mega-menu {
   position: absolute;
   top: 100%;
@@ -59,12 +71,12 @@
   width: 100%;
 }
 
-/* ====== Second-Level Dropdown (Inside Mega Menu) ====== */
+/* Sub Menu (Second-Level Dropdown)
+   ========================================================================== */
 .sub-menu {
   position: absolute;
   top: 0;
   left: 100%;
-  width: auto;
   background: #fff;
   border: 1px solid #ddd;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -88,25 +100,23 @@
   background: #f4f4f4;
 }
 
-/* ====== Show Mega Menu on Hover ====== */
+/* Show Dropdowns on Hover */
 .menu > li:hover > .mega-menu,
 .mega-menu-items > li:hover > .sub-menu {
   display: block;
   width: 100%;
 }
 
+/* ==========================================================================
+   2. Footer Styles
+   ========================================================================== */
 .site-footer {
-  background: #222;
   color: #fff;
   padding: 40px 0;
   text-align: center;
 }
 
 .footer-widgets {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -128,8 +138,30 @@
   text-align: center;
 }
 
-/* ====== Responsive Styles (Mobile View) ====== */
+.site-main .content-area {
+  padding: 15px 30px;
+}
+
+/* ==========================================================================
+   3. Responsive Styles
+   ========================================================================== */
+
+/* Desktop (769px and above) */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  .footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobile (768px and below) */
 @media (max-width: 768px) {
+  /* Navigation */
   .menu {
     flex-direction: column;
   }
@@ -142,14 +174,6 @@
     box-shadow: none;
   }
 
-  .menu > li:hover > .mega-menu,
-  .mega-menu-items > li:hover > .sub-menu {
-    display: block;
-  }
-}
-
-/* Hide navigation on mobile initially */
-@media (max-width: 768px) {
   .primary-navigation {
     display: none;
     flex-direction: column;
@@ -158,14 +182,14 @@
     left: 0;
     width: 100%;
     background: #fff;
-    padding: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   }
+
   .primary-navigation.active {
     display: flex;
   }
 
-  /* Mobile menu toggle button */
+  /* Mobile Menu Toggle */
   .mobile-menu-toggle {
     display: block;
     background: none;
@@ -174,17 +198,9 @@
     cursor: pointer;
   }
 
-  /* Change icon when menu is active */
   .mobile-menu-toggle.active::after {
-    content: "✖"; /* Close Icon */
+    content: "✖";
     z-index: 1;
     position: relative;
-  }
-}
-
-/* Hide menu toggle button on larger screens */
-@media (min-width: 769px) {
-  .mobile-menu-toggle {
-    display: none;
   }
 }

@@ -1,12 +1,14 @@
 <?php
-class Blockenix_Footer {
-    public function __construct() {
-        add_action('widgets_init', [$this, 'register_footer_widgets']);
-        add_action('wp_footer', [$this, 'render_footer']);
+class Blockenix_Footer
+{
+    public function __construct()
+    {
+        add_action('widgets_init', [$this, 'blnx_register_footer_widgets']);
     }
 
     // Register footer widget areas
-    public function register_footer_widgets() {
+    public function blnx_register_footer_widgets()
+    {
         $footer_areas = [
             'footer-1' => __('Footer Column 1', 'blockenix'),
             'footer-2' => __('Footer Column 2', 'blockenix'),
